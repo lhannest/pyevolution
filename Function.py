@@ -8,7 +8,7 @@ class C(object):
     return self.name
 
 class W(object):
-  def __ini2t__(self, f):
+  def __init__(self, f):
     self.f = f
     self.name = f.name + "'"
     @property
