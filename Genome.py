@@ -32,6 +32,10 @@ class Genome(object):
     for a in self.adict:
       adict[a] = self.adict[a]
     
-  def mutate(frequency):
-    for g in aggregate(self.adict, self.ndict):
+  def mutate(frequency, amount=0.1):
+    for g in self.adict:
       if rbool(frequency):
+        self.adict[g] += uniform(-amount, amount)
+    for g in self.ndict:
+      if rbool(frequency):
+        self.ndict[g] += uniform(-amount, amount)
