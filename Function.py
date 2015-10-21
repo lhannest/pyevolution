@@ -5,7 +5,7 @@ class C(object):
     self.name = name
     self.value = 0
   def __repr__(self):
-    return self.name
+    return str(self.name)
 
 class W(object):
   def __init__(self, f):
@@ -14,7 +14,7 @@ class W(object):
     @property
     def value(self): return self.f.value
   def __repr__(self):
-    return self.f.name + "'"
+    return str(self.f.name) + "'"
 
 class F(object):
   def __init__(self, name):
@@ -29,10 +29,10 @@ class F(object):
     else:
       self.summands.append(sums)
   def __repr__(self):
-    return self.name
+    return str(self.name)
     
 def prt(f):
-  st ="  "+f.name+"="+toString(f)
+  st ="  "+str(f.name)+"="+toString(f)
   print(st)
   
 def toString(f):
@@ -47,7 +47,6 @@ def toString(f):
 def expand(f, callers = []):
   c = list(callers)
   c.append(f)
-  print("  " + str(c))
   for i, s in enumerate(f.summands):
     flg=type(s) is W and s.f not in c
     if s in c:
@@ -84,10 +83,10 @@ b.add([a, c])
 c.add(b)
 y.add([a, b])
 expand(y)
-prt(y)
-prt(a)
-prt(b)
-prt(c)
+#prt(y)
+#prt(a)
+#prt(b)
+#prt(c)
 
-x.value = 1.23
-print(evaluate(y))
+#x.value = 1.23
+#print(evaluate(y))
